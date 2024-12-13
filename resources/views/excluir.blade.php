@@ -129,6 +129,8 @@
         <h2>Excluir Usuário</h2>
 
         <p>Tem certeza de que deseja excluir o usuário <strong>{{ $contato->nome }}</strong>?</p>
+        <p>Email: <strong>{{ $contato->email }}</strong></p>
+        <p>Telefone: <strong>{{ $contato->contato }}</strong></p>
         <p><em>Essa ação não pode ser desfeita.</em></p>
 
         <form method="POST" action="{{ route('contatos.destroy', $contato->id) }}">
