@@ -125,55 +125,22 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
-        @if (session('mensagem'))
-            <div id="alertMessage" class="alert alert-success">
-                {{ session('mensagem') }}
-            </div>
-        @endif
-        <h5>Lista de Contatos</h5>
-        <h6 class="quantidade">Atualmente você está com {{ $quantidadeCadastros }} contatos cadastrados</h6>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Contato</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($contatos as $contato)
-                    <tr>
-                        <td>{{ $contato->id }}</td>
-                        <td>{{ $contato->nome }}</td>
-                        <td>{{ $contato->contato }}</td>
-                        <td>{{ $contato->email }}</td>
-                        <td>
-                            <a href="{{ route('informacoesContato', $contato->id) }}" class="btn btn-info btn-sm mt-2">Ver Informações</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="d-flex justify-content-center">
-            <ul class="pagination">
-                {{ $contatos->links('vendor.pagination.bootstrap-4') }}
-            </ul>
-        </div>
-    </div>
+    <div class="container mt-5">
+        <h1>Confirmar exclusão de contato</h1>
+<p>Tem certeza de que deseja excluir o contato {{ $contato->nome }}?</p>
 
+<form action="{{ route('contatos.destroy', $contato->id) }}" method="POST">
+    @csrf
+    @method('DELETE') <!-- O método DELETE deve ser informado aqui -->
+    <button type="submit">Confirmar Exclusão</button>
+</form>
+
+<a href="{{ route('adminContatos') }}">Cancelar</a>
+    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script>
-        @if (session('mensagem'))
-            setTimeout(function() {
-                $('#alertMessage').fadeOut('slow');
-            }, 5000);
-        @endif
-    </script>
-</body>
+</body >
 
-</html>
+</html >

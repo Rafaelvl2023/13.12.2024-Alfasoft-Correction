@@ -16,6 +16,20 @@ class ContatoController extends Controller
         return view('adminContatos', compact('contatos', 'quantidadeCadastros'));
     }
 
+    public function showInformacoes($id)
+    {
+        $contato = Contato::findOrFail($id); // Busca segura do contato
+        return view('informacoes', compact('contato'));
+    }
+
+    public function showExcluir($id)
+    {
+        $contato = Contato::findOrFail($id); // Busca segura do contato
+        return view('excluir', compact('contato')); // Passa o contato para a view
+    }
+
+
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), Contato::$regras);
@@ -32,7 +46,7 @@ class ContatoController extends Controller
     public function edit($id)
     {
         $contato = Contato::findOrFail($id);
-        return view('contatos.edit', compact('contato'));
+        return view('editar', compact('contato'));
     }
 
     public function update(Request $request, $id)

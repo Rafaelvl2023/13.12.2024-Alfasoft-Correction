@@ -126,54 +126,39 @@
         </div>
     </nav>
     <div class="container mt-4">
-        @if (session('mensagem'))
-            <div id="alertMessage" class="alert alert-success">
-                {{ session('mensagem') }}
-            </div>
-        @endif
-        <h5>Lista de Contatos</h5>
-        <h6 class="quantidade">Atualmente você está com {{ $quantidadeCadastros }} contatos cadastrados</h6>
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nome</th>
-                    <th scope="col">Contato</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($contatos as $contato)
-                    <tr>
-                        <td>{{ $contato->id }}</td>
-                        <td>{{ $contato->nome }}</td>
-                        <td>{{ $contato->contato }}</td>
-                        <td>{{ $contato->email }}</td>
-                        <td>
-                            <a href="{{ route('informacoesContato', $contato->id) }}" class="btn btn-info btn-sm mt-2">Ver Informações</a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-        <div class="d-flex justify-content-center">
-            <ul class="pagination">
-                {{ $contatos->links('vendor.pagination.bootstrap-4') }}
-            </ul>
+        <div class="container mt-5">
+            <h2>Editar Usuário</h2>
+            <form method="POST" action="{{ route('contatos.update', $contato->id) }}">
+                @csrf
+                @method('PUT')
+
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" class="form-control" id="nome" name="nome"
+                        value="{{ old('nome', $contato->nome) }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contato">Contato</label>
+                    <input type="text" class="form-control" id="contato" name="contato"
+                        value="{{ old('contato', $contato->contato) }}" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email"
+                        value="{{ old('email', $contato->email) }}" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                <a href="{{ route('adminContatos') }}" class="btn btn-secondary">Cancelar</a>
+            </form>
         </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <script>
-        @if (session('mensagem'))
-            setTimeout(function() {
-                $('#alertMessage').fadeOut('slow');
-            }, 5000);
-        @endif
-    </script>
-</body>
+</body >
 
-</html>
+</html >
