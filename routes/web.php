@@ -29,10 +29,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/informacoes/{id}', [ContatoController::class, 'showInformacoes'])->name('informacoesContato');
     Route::get('/excluir/{id}', [ContatoController::class, 'showExcluir'])->name('excluir');
 
-    Route::get('/excluir', function () {
-        return view('excluir');
-    })->name('excluir');
-
     Route::get('/adminContatos', [ContatoController::class, 'index'])->name('adminContatos');
     Route::post('/', [ContatoController::class, 'store'])->name('contatos.store');
     Route::delete('/{id}', [ContatoController::class, 'destroy'])->name('contatos.destroy');

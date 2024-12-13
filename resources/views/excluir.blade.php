@@ -126,16 +126,18 @@
         </div>
     </nav>
     <div class="container mt-5">
-        <h1>Confirmar exclusão de contato</h1>
-<p>Tem certeza de que deseja excluir o contato {{ $contato->nome }}?</p>
+        <h2>Excluir Usuário</h2>
 
-<form action="{{ route('contatos.destroy', $contato->id) }}" method="POST">
-    @csrf
-    @method('DELETE') <!-- O método DELETE deve ser informado aqui -->
-    <button type="submit">Confirmar Exclusão</button>
-</form>
+        <p>Tem certeza de que deseja excluir o usuário <strong>{{ $contato->nome }}</strong>?</p>
+        <p><em>Essa ação não pode ser desfeita.</em></p>
 
-<a href="{{ route('adminContatos') }}">Cancelar</a>
+        <form method="POST" action="{{ route('contatos.destroy', $contato->id) }}">
+            @csrf
+            @method('DELETE')
+
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="{{ route('adminContatos') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
