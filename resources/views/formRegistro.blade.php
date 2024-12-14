@@ -118,7 +118,7 @@
         </div>
     </nav>
     <div class="container col-md-4 mt-5 border border-dark rounded" style="background: url('https://wallpapers.com/images/hd/white-hd-5760-x-3840-background-xfkbx1irwnhb275r.jpg') no-repeat center center fixed; background-size: cover; padding: 20px;">
-        <h4 class="text-center mt-4 mb-4">Cadastrar novo contacto</h4>
+        <h4 class="text-center mt-4 mb-4">Cadastrar novo contato</h4>
         <form action="{{ route('contatos.store') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -136,7 +136,7 @@
             </div>
             <button type="submit" class="button btn btn-primary btn-block mb-4">Cadastrar Contato</button>
         </form>
-        
+
 
         @if (session('status'))
             <div class="alert alert-success alert-dismissible fade show" role="alert" id="alertMessage">
