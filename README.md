@@ -46,7 +46,7 @@ Criar chave da aplciacao
 
 - php artisan key:generate
 
-### 4.1 Configure o Banco de Dados
+### 4.1 Configurar as Credenciais do Banco de Dados
 
 Crie o banco de dados no xampp
 
