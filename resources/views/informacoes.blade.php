@@ -82,23 +82,24 @@
 
     <div class="container mt-4">
 
-        <div class="container mt-5">
-            <h2>Informações do Usuário</h2>
+        <div class="container mt-5" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+            <h4 class="text-center mb-4" style="font-family: 'Arial', sans-serif; color: #333;">Informações do Usuário</h4>
 
-            <div class="card">
+            <div class="card" style="border: 1px solid #ddd; border-radius: 8px;">
                 <div class="card-body">
-                    <h5 class="card-title">Nome: {{ $contato->nome }}</h5>
-                    <p class="card-text"><strong>Contato:</strong> {{ $contato->contato }}</p>
-                    <p class="card-text"><strong>Email:</strong> {{ $contato->email }}</p>
+                    <h5 class="card-title" style="font-size: 1.2rem; font-weight: bold; color: #333;">Nome: {{ $contato->nome }}</h5>
+                    <p class="card-text" style="font-size: 1rem; color: #555;"><strong>Contato:</strong> {{ $contato->contato }}</p>
+                    <p class="card-text" style="font-size: 1rem; color: #555;"><strong>Email:</strong> {{ $contato->email }}</p>
                 </div>
             </div>
 
-            <div class="mt-4">
-                <a href="{{ route('editar', $contato->id) }}" class="btn btn-primary btn-sm">Editar</a>
-                <a href="{{ route('excluir', $contato->id) }}" class="btn btn-danger btn-sm">Excluir</a>
-                <a href="{{ route('adminContatos') }}" class="btn btn-secondary btn-sm">Voltar</a>
+            <div class="mt-4 d-flex justify-content-end">
+                <a href="{{ route('editar', $contato->id) }}" class="btn btn-primary btn-sm ml-2">Editar</a>
+                <a href="{{ route('excluir', $contato->id) }}" class="btn btn-danger btn-sm ml-2">Excluir</a>
+                <a href="{{ route('adminContatos') }}" class="btn btn-secondary btn-sm ml-2">Voltar</a>
             </div>
         </div>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

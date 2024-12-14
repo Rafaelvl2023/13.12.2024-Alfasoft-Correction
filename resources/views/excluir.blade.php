@@ -125,22 +125,26 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-5">
-        <h2>Excluir Usuário</h2>
+    <div class="container mt-5" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h4 class="text-center mb-4" style="font-family: 'Arial', sans-serif; color: #333;">Excluir Usuário</h4>
 
-        <p>Tem certeza de que deseja excluir o usuário <strong>{{ $contato->nome }}</strong>?</p>
-        <p>Email: <strong>{{ $contato->email }}</strong></p>
-        <p>Telefone: <strong>{{ $contato->contato }}</strong></p>
-        <p><em>Essa ação não pode ser desfeita.</em></p>
+        <p style="font-size: 1.1rem; color: #555;">Tem certeza de que deseja excluir o usuário <strong>{{ $contato->nome }}</strong>?</p>
+        <p style="font-size: 1rem; color: #555;">Email: <strong>{{ $contato->email }}</strong></p>
+        <p style="font-size: 1rem; color: #555;">Telefone: <strong>{{ $contato->contato }}</strong></p>
+        <p style="font-style: italic; color: #d9534f; font-size: 1.1rem;">Essa ação não pode ser desfeita.</p>
 
         <form method="POST" action="{{ route('contatos.destroy', $contato->id) }}">
             @csrf
             @method('DELETE')
 
-            <button type="submit" class="btn btn-danger">Excluir</button>
-            <a href="{{ route('adminContatos') }}" class="btn btn-secondary">Cancelar</a>
+            <div class="mt-4 d-flex justify-content-end">
+                <button type="submit" class="btn btn-danger btn-sm ml-2">Excluir</button>
+                <a href="{{ route('adminContatos') }}" class="btn btn-secondary btn-sm ml-2">Cancelar</a>
+            </div>
         </form>
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>

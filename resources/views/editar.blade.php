@@ -125,36 +125,35 @@
             </div>
         </div>
     </nav>
-    <div class="container mt-4">
-        <div class="container mt-5">
-            <h2>Editar Usuário</h2>
-            <form method="POST" action="{{ route('contatos.update', $contato->id) }}">
-                @csrf
-                @method('PUT')
+    <div class="container mt-5" style="background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        <h4 class="text-center mb-4" style="font-family: 'Arial', sans-serif; color: #333;">Editar Usuário</h4>
 
-                <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" class="form-control" id="nome" name="nome"
-                        value="{{ old('nome', $contato->nome) }}" required>
-                </div>
+        <form method="POST" action="{{ route('contatos.update', $contato->id) }}">
+            @csrf
+            @method('PUT')
 
-                <div class="form-group">
-                    <label for="contato">Contato</label>
-                    <input type="text" class="form-control" id="contato" name="contato"
-                        value="{{ old('contato', $contato->contato) }}" required>
-                </div>
+            <div class="form-group">
+                <label for="nome" style="font-size: 1rem; font-weight: bold; color: #333;">Nome</label>
+                <input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome', $contato->nome) }}" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" name="email"
-                        value="{{ old('email', $contato->email) }}" required>
-                </div>
+            <div class="form-group">
+                <label for="contato" style="font-size: 1rem; font-weight: bold; color: #333;">Contato</label>
+                <input type="text" class="form-control" id="contato" name="contato" value="{{ old('contato', $contato->contato) }}" required>
+            </div>
 
-                <button type="submit" class="btn btn-primary">Salvar Alterações</button>
-                <a href="{{ route('adminContatos') }}" class="btn btn-secondary">Cancelar</a>
-            </form>
-        </div>
+            <div class="form-group">
+                <label for="email" style="font-size: 1rem; font-weight: bold; color: #333;">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $contato->email) }}" required>
+            </div>
+
+            <div class="mt-4 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary btn-sm ml-2">Salvar Alterações</button>
+                <a href="{{ route('adminContatos') }}" class="btn btn-secondary btn-sm ml-2">Cancelar</a>
+            </div>
+        </form>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
