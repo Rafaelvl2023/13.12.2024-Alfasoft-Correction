@@ -135,16 +135,25 @@
             <div class="form-group">
                 <label for="nome" style="font-size: 1rem; font-weight: bold; color: #333;">Nome</label>
                 <input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome', $contato->nome) }}" required>
+                @error('nome')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="contato" style="font-size: 1rem; font-weight: bold; color: #333;">Contato</label>
                 <input type="text" class="form-control" id="contato" name="contato" value="{{ old('contato', $contato->contato) }}" required>
+                @error('contato')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="form-group">
                 <label for="email" style="font-size: 1rem; font-weight: bold; color: #333;">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ old('email', $contato->email) }}" required>
+                @error('email')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mt-4 d-flex justify-content-end">
@@ -152,6 +161,7 @@
                 <a href="{{ route('adminContatos') }}" class="btn btn-secondary btn-sm ml-2">Cancelar</a>
             </div>
         </form>
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

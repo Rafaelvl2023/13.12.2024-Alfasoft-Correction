@@ -50,19 +50,23 @@ class ContatoController extends Controller
     }
 
     public function update(Request $request, $id)
-    {
-        $contato = Contato::findOrFail($id);
+{
+    $contato = Contato::findOrFail($id);
 
-        $validated = $request->validate([
-            'nome' => 'required|string|max:255',
-            'contato' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-        ]);
+    // Validação dos campos
+    $validatedData = $request->validate([
+        'nome' => 'required|string|max:255',
+        'contato' => 'required|numeric|digits:9',  // Valida que o número de contato tem 9 dígitos
+        'email' => 'required|email|unique:contatos,email,' . $contato->id,  // Valida que o e-mail é único, exceto para o registro atual
+    ]);
 
-        $contato->update($validated);
+    // Atualizando os dados
+    $contato->update($validatedData);
 
-        return redirect()->route('adminContatos')->with('mensagem', 'Contato atualizado com sucesso!');
-    }
+    // Redirecionar com sucesso
+    return redirect()->route('adminContatos')->with('mensagem', 'Contato atualizado com sucesso!');
+}
+
 
     public function show($id)
     {
